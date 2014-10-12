@@ -202,22 +202,23 @@ public class MapPanel extends JPanel implements ActionListener {
 	
 	private void colorButton(int x, int y)
 	{
+		Color newColor = null;
 		switch(map[x][y])
 		{
 		case 0:
-			buttons[x][y].setBackground(Color.LIGHT_GRAY);
+			newColor = Color.LIGHT_GRAY;
 			break;
 		case 1:
-			buttons[x][y].setBackground(Color.GRAY);
+			newColor = Color.GRAY;
 			break;
 		case 2:
-			buttons[x][y].setBackground(Color.GREEN);
+			newColor = Color.GREEN;
 			break;
 		case 3:
-			buttons[x][y].setBackground(Color.YELLOW);
+			newColor = Color.YELLOW;
 			break;
 		}
-
+		buttons[x][y].setBackground(newColor);
 	}
 
 	private void fillMap(int[][] otherMap)

@@ -59,10 +59,17 @@ public class MapCreator implements ActionListener {
 	
 	private void createAndRun()
 	{
+		try {
+			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		frame = new JFrame();
 		JPanel controlPanel = createAndFillControl();
 		map1Panel = new MapPanel(mapDimensions[MAP1][X_DIM], mapDimensions[MAP1][Y_DIM]);
 		map2Panel = new MapPanel(mapDimensions[MAP2][X_DIM], mapDimensions[MAP2][Y_DIM]);
+		map1Panel.mapName.setText("map1");
+		map2Panel.mapName.setText("map2");
 		JPanel mapsPanel = new JPanel();
 		mapsPanel.setLayout(new FlowLayout());
 		mapsPanel.add(map1Panel);
@@ -156,7 +163,7 @@ public class MapCreator implements ActionListener {
 		}
 		if (map2Name.isEmpty())
 		{
-			map2Name = "map1";
+			map2Name = "map2";
 		}
 		
 		try {
